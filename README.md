@@ -19,51 +19,23 @@ venv\Scripts\activate
 source venv/bin/activate
 
 # Instalar dependências
-pip install django djangorestframework
+pip install -r requirements.txt
 ```
 
-### 2. Criar o projeto Django
-
-```bash
-# Criar projeto
-django-admin startproject flashcards_project .
-
-# Criar app
-python manage.py startapp flashcards
-```
-
-### 3. Configurar o projeto
-
-Adicione ao `settings.py`:
-- `'rest_framework'` em `INSTALLED_APPS`
-- `'flashcards'` em `INSTALLED_APPS`
-- Configure `REST_FRAMEWORK` (veja arquivo settings.py)
-
-Configure o `urls.py` principal:
-```python
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('flashcards.urls')),
-]
-```
-
-### 4. Aplicar migrações
+### 2. Aplicar migrações
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5. Criar superusuário (opcional)
+### 3. Criar superusuário (opcional)
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 6. Rodar o servidor
+### 4. Rodar o servidor
 
 ```bash
 python manage.py runserver
